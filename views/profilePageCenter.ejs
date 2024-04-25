@@ -1,0 +1,43 @@
+<div
+  style="
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 400px;
+  "
+>
+  <div style="text-align: center">
+    <h1>Hello <%= user.username %></h1>
+
+    <div
+      style="display: flex; flex-direction: column; margin: 20px; padding: 20px"
+    >
+      <div>
+        <h3>
+          Your username : <%= user.username%>
+          <a
+            href="/edit/username"
+            style="color: #1da1f2; text-decoration: underline; cursor: pointer"
+            >Update username</a
+          >
+        </h3>
+      </div>
+      <h3>
+        Your email : <%= user.email %>
+        <a
+          href="/edit/email"
+          style="color: #1da1f2; text-decoration: underline; cursor: pointer"
+          >Update Email</a
+        >
+      </h3>
+      <h3>
+        Change Your password :
+        <a
+          href="/edit/password"
+          style="color: #1da1f2; text-decoration: underline; cursor: pointer"
+          >Change Password</a
+        >
+      </h3>
+    </div>
+  </div>
+</div>

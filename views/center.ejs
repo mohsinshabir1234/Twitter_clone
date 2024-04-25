@@ -1,0 +1,37 @@
+<div style="padding-left: 600px">
+  <h1>Compose Tweet</h1>
+  <form action="/post_tweet" method="POST" style="border-style: none">
+    <textarea
+      name="tweet"
+      id="tweet"
+      cols="50"
+      rows="5"
+      placeholder="What's happening?"
+    ></textarea>
+    <input type="hidden" name="user" value="<%= user.username %>" />
+
+    <button type="submit">Post</button>
+  </form>
+
+  <div>
+    <h2>All Tweets</h2>
+    <% alltweets.forEach(tweet => { %>
+    <div
+      style="
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 10px;
+        margin-bottom: 10px;
+        width: 400px;
+      "
+    >
+      <h1><%= tweet.tweet %></h1>
+      <p>Posted by: <%= user.username %></p>
+      <form action="/like" method="POST" style="display: inline">
+        <input type="hidden" name="tweetId" value="<%= tweet._id %>" />
+        <button type="submit">Like</button>
+      </form>
+    </div>
+    <% }); %>
+  </div>
+</div>

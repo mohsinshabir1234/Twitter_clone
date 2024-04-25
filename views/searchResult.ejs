@@ -1,0 +1,36 @@
+<!-- search.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Search Results</title>
+  </head>
+  <body>
+    <header><%- include('header.ejs') %></header>
+
+    <aside><%- include('sidebar.ejs') %></aside>
+    <main style="margin-left: 30%">
+      <h1>User Search Results</h1>
+      <br />
+      <p><% if (users.length === 0) { %></p>
+
+      <p>No users found.</p>
+      <% } else { %>
+      <ul>
+        <% users.forEach(user => { %>
+        <li style="border: solid; width: 30%">
+          <strong>Username:</strong> <%= user.username %>
+          <button title="Follow">Follow</button>
+          <button title="Follow">Open profile</button>
+          <br /><br />
+          <strong>Email:</strong> <%= user.email %><br />
+          <br />
+        </li>
+        <% }); %>
+      </ul>
+      <% } %>
+    </main>
+  </body>
+</html>

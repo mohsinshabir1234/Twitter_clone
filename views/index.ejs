@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Profile</title>
+    <link rel="stylesheet" href="/public/styles.css" />
+  </head>
+  <body>
+
+    <header>
+
+      <%- include('header.ejs',{user}) %>
+    </header>
+
+  
+    <aside><%- include('sidebar.ejs') %></aside>
+
+    
+    <main>
+      
+
+      <%- include('center.ejs',{alltweets}) %>
+    </main>
+
+    
+    <footer>
+      
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+{
+  "name": "twitterfront",
+  "version": "1.0.0",
+  "description": "This is a twitter clone",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "twit"
+  ],
+  "author": "Mohsin",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "mongoose": "^8.3.2",
+    "passport": "^0.7.0",
+    "passport-local": "^1.0.0"
+  }
+}

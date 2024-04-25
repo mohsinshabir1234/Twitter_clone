@@ -1,0 +1,18 @@
+<div
+  class="container"
+  style="
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  "
+>
+  <div class="login-form" style="margin-top: 20px">
+    <h2 style="color: #1da1f2; margin-bottom: -200px; padding-left: 40px">
+      You are now a member!<br /><br />
+      <small style="padding-left: 60px"> Please login</small>
+    </h2>
+
+    <% if (hasSignedUp) { %> <% } %> <%- include('login.ejs') %>
+  </div>
+</div>

@@ -1,0 +1,85 @@
+<!-- search.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search | Twitter</title>
+  </head>
+  <body>
+    <header><%- include('header.ejs') %></header>
+
+    <aside><%- include('sidebar.ejs') %></aside>
+
+    <main style="text-align: center; padding-right: 400px">
+      <h1 style="font-size: 2rem; margin-bottom: 1rem">Search Twitter</h1>
+      <form action="/search/users" method="GET" style="margin-bottom: 2rem">
+        <input
+          type="text"
+          name="query"
+          placeholder="Search Twitter"
+          style="padding: 0.5rem; border: 1px solid #ccc; border-radius: 4px"
+        />
+        <button
+          type="submit"
+          style="
+            padding: 0.5rem 1rem;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+          "
+        >
+          Search
+        </button>
+      </form>
+    </main>
+
+    <footer></footer>
+
+    <script>
+      const searchForm = document.getElementById("searchForm");
+      const searchInput = document.getElementById("searchInput");
+      const searchResults = document.getElementById("searchResults");
+
+      searchForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        const query = searchInput.value.trim();
+
+        if (query === "") {
+          searchResults.innerHTML = "Please enter a search query.";
+          return;
+        }
+
+        try {
+          const response = await fetch(
+            `/search/users?query=${encodeURIComponent(query)}`
+          );
+          const data = await response.json();
+
+          if (response.ok) {
+            // Display search results
+            const users = data.users;
+            if (users.length === 0) {
+              searchResults.innerHTML = "No users found.";
+            } else {
+              searchResults.innerHTML = "<h3>Search Results:</h3>";
+              users.forEach((user) => {
+                searchResults.innerHTML += `<p>${user.username} - ${user.email}</p>`;
+              });
+            }
+          } else {
+            searchResults.innerHTML =
+              data.message || "Error searching for users.";
+          }
+        } catch (error) {
+          console.error("Request failed:", error);
+          searchResults.innerHTML = "Error searching for users.";
+        }
+      });
+    </script>
+  </body>
+</html>

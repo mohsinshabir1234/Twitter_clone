@@ -1,0 +1,11 @@
+<div style="padding-left: 100px; width: 200px">
+  <h1>All Tweets By You</h1>
+  <div>
+    <% allTweets.forEach(tweet => { %>
+    <div>
+      <p><%= tweet.tweet %></p>
+      <p>Posted by <%= tweet.user %></p>
+    </div>
+    <% }); %>
+  </div>
+</div>
